@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from app.api.routers import main_router
+from app.pages.routers import pages_router
 
 
 app = FastAPI()
-app.include_router(main_router)
+app.include_router(pages_router)
