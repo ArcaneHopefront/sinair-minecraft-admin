@@ -6,11 +6,11 @@ class Settings(BaseSettings):
     app_title: str = 'Sinair Minecraft Admin'
     http_port: int = Field(
         default=8000,
-        alias='UVICORN_PORT'
+        validation_alias='UVICORN_PORT'
     )
     host: str = Field(
         default='0.0.0.0',
-        alias='UVICORN_HOST'
+        validation_alias='UVICORN_HOST'
     )
     management_api_base_url: str
 
