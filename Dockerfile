@@ -18,11 +18,14 @@ WORKDIR /app
 
 COPY --from=builder /build/wheels /wheels
 
-RUN pip install --no-cache-dir --no-index --find-links=/wheels /wheels/* \
-    && rm -rf /wheels
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir --no-index --find-links=/wheels -r requirements.txt \
+    && rm -rf /wheels requirements.txt
 
 COPY --chown=appuser:appuser ./app ./app
 
 USER appuser
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "app.main"]

@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    container_name: mc_admin_container
+    ports:
+      - "${UVICORN_PORT}:${UVICORN_PORT}"
+    env_file:
+      - .env
+    restart: always
