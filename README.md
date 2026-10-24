@@ -70,3 +70,12 @@ MANAGEMENT_API_BASE_URL=http://test/
    ```bash
    docker compose down
    ```
+---
+## Запуск Pytest
+
+В проекте есть тесты для проверки его работоспособности.
+Находясь в корне проекта введите:
+
+```bash
+pytest
+```
