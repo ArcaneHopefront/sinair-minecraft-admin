@@ -48,4 +48,4 @@ jobs:
         env:
           PYTHONPATH: .
         run: |
-          pytest --envfile tests/.env.tests
+          pytest --envfile tests/.env.test
