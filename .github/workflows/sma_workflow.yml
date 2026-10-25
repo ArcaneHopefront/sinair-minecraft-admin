@@ -45,7 +45,5 @@ jobs:
           python -m pip install --upgrade pip setuptools
           pip install -r ./requirements-dev.txt
       - name: Run tests
-        env:
-          MANAGEMENT_API_BASE_URL: 'http://test/'
         run: |
           pytest
