@@ -1,9 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
 
-from app.pages.routers import pages_router
 from app.core.config import settings
-
+from app.pages.routers import pages_router
 
 app = FastAPI(title=settings.app_title)
 app.include_router(pages_router)
