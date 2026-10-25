@@ -1,2 +1,2 @@
-[tools.pytest_env]
+[tool.pytest_env]
 env_files = [".env", "tests/.env.test"]

@@ -46,4 +46,4 @@ jobs:
           pip install -r ./requirements-dev.txt
       - name: Run tests
         run: |
-          pytest --envfile tests/.env.tests
+          pytest
