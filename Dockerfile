@@ -4,10 +4,10 @@ WORKDIR /build
 
 RUN pip install --no-cache-dir --upgrade pip
 
-COPY requirements.txt .
+COPY ./requirements ./requirements
 
 RUN pip wheel --no-cache-dir --no-deps \
-    --wheel-dir /build/wheels -r requirements.txt
+    --wheel-dir /build/wheels -r ./requirements/requirements.txt
 
 
 FROM python:3.14-slim
@@ -18,11 +18,11 @@ WORKDIR /app
 
 COPY --from=builder /build/wheels /wheels
 
-COPY requirements.txt .
+COPY ./requirements ./requirements
 
 RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir --no-index --find-links=/wheels -r requirements.txt \
-    && rm -rf /wheels requirements.txt
+    && pip install --no-cache-dir --no-index --find-links=/wheels -r ./requirements/requirements.txt \
+    && rm -rf /wheels ./requirements~
 
 COPY --chown=appuser:appuser ./app ./app
 
